@@ -1,0 +1,27 @@
+<h1>Obvestila</h1>
+
+<table border="1">
+  <tr>
+    <th>Ime</th>
+    <th>Naslov</th>
+    <th>Vsebina</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.name %></td>
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= link_to 'Prikaži', post %></td>
+    <td><%= link_to 'Uredi', edit_post_path(post) %></td>
+    <td><%= link_to 'Izbriši', post, method: :delete, data: { confirm: 'Ali ste prepričani, da želite izbrisati obvestilo?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo obvestilo', new_post_path %>
